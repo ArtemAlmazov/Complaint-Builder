@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Complaint Builder — генератор жалоб, заявлений и форумных ответов для RP-проектов.">
+  <title>Complaint Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-orbs" aria-hidden="true">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="orb orb-3"></span>
+  </div>
+
+  <header class="header container">
+    <a class="logo" href="#home">Complaint <span>Builder</span></a>
+    <nav class="nav">
+      <a href="#home">Главная</a>
+      <a href="#complaint">Создать жалобу</a>
+      <a href="#statement">Создать заявление</a>
+      <a href="#admin-reply">Ответ администрации</a>
+      <a href="#about">О проекте</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero container card">
+      <div class="hero-content">
+        <p class="tag">RP Forum Toolkit</p>
+        <h1>Генерируйте аккуратные форумные жалобы за минуту</h1>
+        <p class="lead">Complaint Builder помогает быстро оформить жалобу в правильном формате BBCode с проверкой обязательных полей.</p>
+        <a class="button primary" href="#complaint">Перейти к генератору</a>
+      </div>
+      <div class="hero-preview">
+        <div class="glow-card">
+          <p>[B]Ваш ник:[/B] PlayerName</p>
+          <p>[B]Ник нарушителя:[/B] BadPlayer</p>
+          <p>[B]Описание:[/B] Подробное описание ситуации...</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="complaint" class="container section">
+      <div class="section-head">
+        <h2>Создать жалобу</h2>
+        <p>Первая версия полностью поддерживает генерацию жалобы.</p>
+      </div>
+
+      <div class="grid-two">
+        <form id="complaintForm" class="card form" novalidate>
+          <div class="form-grid">
+            <label>
+              Ваш ник *
+              <input type="text" id="authorNick" placeholder="Например: John_Doe">
+            </label>
+            <label>
+              Ник нарушителя *
+              <input type="text" id="violatorNick" placeholder="Например: Toxic_Player">
+            </label>
+            <label>
+              Тип жалобы
+              <select id="complaintType">
+                <option>Жалоба на игрока</option>
+                <option>Жалоба на администратора</option>
+                <option>Жалоба на лидера/заместителя</option>
+                <option>Жалоба на игрока гос. структуры</option>
+                <option>Жалоба на игрока крим. структуры</option>
+              </select>
+            </label>
+            <label>
+              Дата нарушения
+              <input type="date" id="incidentDate">
+            </label>
+            <label class="full">
+              Описание ситуации *
+              <textarea id="situation" rows="5" placeholder="Опишите, что произошло"></textarea>
+            </label>
+            <label class="full">
+              Доказательства *
+              <textarea id="evidence" rows="4" placeholder="Ссылка на видео/скриншоты"></textarea>
+            </label>
+            <label>
+              Тайм-код
+              <input type="text" id="timecode" placeholder="Например: 01:32">
+            </label>
+            <label>
+              Наличие /c 060 *
+              <select id="hasC060">
+                <option value="yes">Да</option>
+                <option value="no">Нет</option>
+              </select>
+            </label>
+            <label>
+              Длительность видео (сек.)
+              <input type="number" id="videoLength" min="0" step="1" placeholder="Например: 125">
+            </label>
+          </div>
+
+          <div id="alerts" class="alerts" aria-live="polite"></div>
+
+          <div class="actions">
+            <button type="button" class="button ghost" id="checkBtn">Проверить жалобу</button>
+            <button type="button" class="button primary" id="generateBtn">Сгенерировать BBCode</button>
+            <button type="button" class="button secondary" id="copyBtn">Скопировать BBCode</button>
+            <button type="reset" class="button danger" id="clearBtn">Очистить</button>
+          </div>
+        </form>
+
+        <section class="card output">
+          <h3>Предпросмотр результата</h3>
+          <textarea id="output" readonly placeholder="Здесь появится готовый BBCode..."></textarea>
+        </section>
+      </div>
+    </section>
+
+    <section id="statement" class="container section card muted">
+      <h2>Создать заявление</h2>
+      <p>Скоро: модуль генерации заявлений.</p>
+    </section>
+
+    <section id="admin-reply" class="container section card muted">
+      <h2>Ответ администрации</h2>
+      <p>Скоро: генератор ответов администрации.</p>
+    </section>
+
+    <section id="about" class="container section card muted">
+      <h2>О проекте</h2>
+      <p>Complaint Builder — статический инструмент для RP-проектов, работающий прямо в браузере и подходящий для GitHub Pages.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
