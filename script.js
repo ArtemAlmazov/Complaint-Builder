@@ -11,14 +11,14 @@ const fields = {
 
 function buildStatus() {
   const checks = [
-    ['Указан ваш ник', !!fields.authorNick.value.trim()],
-    ['Указан ник нарушителя', !!fields.violatorNick.value.trim()],
-    ['Есть описание ситуации', !!fields.situation.value.trim()],
-    ['Есть доказательства', !!fields.evidence.value.trim()],
-    ['Присутствует /c 060', fields.hasC060.value === 'yes']
+    [fields.authorNick.value.trim() ? 'Ваш ник указан' : 'Не указан ваш ник', !!fields.authorNick.value.trim()],
+    [fields.violatorNick.value.trim() ? 'Ник нарушителя указан' : 'Не указан ник нарушителя', !!fields.violatorNick.value.trim()],
+    [fields.situation.value.trim() ? 'Описание заполнено' : 'Не заполнено описание', !!fields.situation.value.trim()],
+    [fields.evidence.value.trim() ? 'Доказательства добавлены' : 'Не добавлены доказательства', !!fields.evidence.value.trim()],
+    [fields.hasC060.value === 'yes' ? '/c 060 отмечен' : '/c 060 не отмечен', fields.hasC060.value === 'yes']
   ];
   const videoLength = Number(fields.videoLength.value || 0);
-  if (videoLength > 60) checks.push(['Добавлен тайм-код для видео > 60 сек', !!fields.timecode.value.trim()]);
+  checks.push([fields.timecode.value.trim() ? 'Тайм-код указан' : 'Тайм-код не указан', !!fields.timecode.value.trim()]);
   return checks;
 }
 
@@ -77,3 +77,6 @@ Object.values(fields).forEach((f) => f.addEventListener('input', renderStatus));
 const observer = new IntersectionObserver((entries) => entries.forEach((e) => e.target.classList.toggle('visible', e.isIntersecting)), {threshold: .15});
 document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 renderStatus();
+
+const previewCopyBtn = document.getElementById('previewCopyBtn');
+if (previewCopyBtn) previewCopyBtn.addEventListener('click', () => document.getElementById('copyBtn').click());
