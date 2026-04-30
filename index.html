@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Complaint Builder — премиум генератор жалоб и BBCode для RP-проектов.">
+  <title>Complaint Builder v1.0.3</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg-grid" aria-hidden="true"></div><div class="bg-orbs" aria-hidden="true"><span class="orb orb-a"></span><span class="orb orb-b"></span><span class="orb orb-c"></span></div>
+<header class="header"><div class="container header-inner"><a class="logo" href="#home">Complaint <span>Builder</span></a><nav class="nav"><a class="active" href="#home">Главная</a><a href="#generator">Создать жалобу</a><a href="#features">Преимущества</a><a href="#about">О проекте</a></nav><a class="button nav-cta" href="#generator">Открыть конструктор</a></div></header>
+<main>
+<section id="home" class="hero section reveal"><div class="container hero-grid"><div><p class="kicker">Premium RP Forum Toolkit</p><h1>Создавайте жалобы и заявления <span class="grad">красиво</span>, <span class="grad">быстро</span> и <span class="grad">без ошибок</span></h1><p class="lead">Complaint Builder помогает оформить жалобу по правилам форума, проверить ключевые условия и получить чистый BBCode для публикации.</p><div class="hero-actions"><a class="button primary" href="#generator">Создать жалобу</a><a class="button ghost" href="#preview">Посмотреть пример</a></div></div>
+<aside class="card hero-card" id="preview"><h3>Жалоба готова к публикации</h3><pre>[CENTER][B]Жалоба на игрока[/B][/CENTER]
+[B]Ваш ник:[/B] John_Doe
+[B]Ник нарушителя:[/B] Toxic_Player
+[B]Описание:[/B] Нарушение правил...
+[B]Доказательства:[/B] https://video
+[B]Тайм-код:[/B] 01:32
+[B]Наличие /c 060:[/B] Да</pre><div class="badges"><span>Проверено</span><span>BBCode</span><span>Копирование</span></div></aside></div></section>
+<section id="features" class="section reveal"><div class="container"><div class="features-row"><article class="card feature"><h3>Проверка формы</h3><p>Live-статусы обязательных условий перед отправкой.</p></article><article class="card feature"><h3>Готовый BBCode</h3><p>Шаблон формируется автоматически в удобном формате.</p></article><article class="card feature"><h3>Быстрое копирование</h3><p>Один клик — и жалоба уже в буфере обмена.</p></article></div></div></section>
+<section id="generator" class="section reveal"><div class="container"><div class="section-head"><h2>Создать жалобу</h2><p>Заполните форму слева и получите готовый BBCode справа.</p></div><div class="generator-grid"><form id="complaintForm" class="card form" novalidate><div class="form-grid"><label>Ваш ник *<input type="text" id="authorNick" placeholder="John_Doe"></label><label>Ник нарушителя *<input type="text" id="violatorNick" placeholder="Toxic_Player"></label><label>Тип жалобы<select id="complaintType"><option>Жалоба на игрока</option><option>Жалоба на администратора</option><option>Жалоба на лидера/заместителя</option><option>Жалоба на игрока гос. структуры</option><option>Жалоба на игрока крим. структуры</option></select></label><label>Дата нарушения<input type="date" id="incidentDate"></label><label class="full">Описание ситуации *<textarea id="situation" rows="4"></textarea></label><label class="full">Доказательства *<textarea id="evidence" rows="3"></textarea></label><label>Тайм-код<input type="text" id="timecode" placeholder="01:32"></label><label>Наличие /c 060 *<select id="hasC060"><option value="yes">Да</option><option value="no">Нет</option></select></label><label>Длительность видео (сек.)<input type="number" id="videoLength" min="0" step="1" placeholder="125"></label></div><div class="actions"><button type="button" class="button soft" id="checkBtn">Проверить жалобу</button><button type="button" class="button primary" id="generateBtn">Сгенерировать BBCode</button><button type="button" class="button secondary" id="copyBtn">Скопировать BBCode</button><button type="reset" class="button light" id="clearBtn">Очистить</button></div></form>
+<section class="card output"><div class="output-head"><h3>Preview BBCode</h3><button type="button" class="button secondary mini" id="previewCopyBtn">Копировать</button></div><textarea id="output" readonly placeholder="Здесь появится готовый BBCode..."></textarea></section></div>
+<article class="card check-panel"><h3>Проверка формы</h3><ul id="statusList" class="status-list"></ul><div id="alerts" class="alerts" aria-live="polite"></div></article></div></section>
+<section id="about" class="section reveal"><div class="container"><article class="card about-card"><h2>О проекте</h2><p>Complaint Builder — удобный генератор форумных жалоб для RP-проектов. Он помогает игрокам и администрации быстро оформлять темы в BBCode, проверять обязательные поля и копировать готовый результат для публикации на форуме.</p><ul><li>Понятный интерфейс с акцентом на скорость.</li><li>Проверка обязательных условий перед отправкой.</li><li>Полностью статический сайт для GitHub Pages.</li></ul></article></div></section>
+</main>
+<footer class="footer"><div class="container footer-inner"><span>Для SAMP / CRMP / MTA / RP проектов</span><span>by A. Almazov</span></div></footer>
+<script src="script.js"></script>
+</body></html>
